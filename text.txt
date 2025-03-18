@@ -1,0 +1,63 @@
+openuv-h8j7rm8578eb6-io
+pk.eyJ1IjoieXVwZW5nbGl1IiwiYSI6ImNtMjF2a2lpNDAwa28ybXEwNzByeHZkdjEifQ.eJuvRXNJcqKUbAFBwu5xJg
+
+
+response for uv level:
+
+{
+  "result": {
+    "ozone": 343.8,
+    "ozone_time": "2023-04-12T15:04:31.773Z",
+    "safe_exposure_time": {
+      "st1": 290,
+      "st2": 347,
+      "st3": 463,
+      "st4": 579,
+      "st5": 927,
+      "st6": 1737
+    },
+    "sun_info": {
+      "sun_position": {
+        "altitude": 0.29762293066205464,
+        "azimuth": -1.244597492089461
+      },
+      "sun_times": {
+        "dawn": "2025-03-13T22:02:34.191Z",
+        "dusk": "2025-03-14T10:47:39.107Z",
+        "goldenHour": "2025-03-14T09:44:52.870Z",
+        "goldenHourEnd": "2025-03-13T23:05:20.428Z",
+        "nadir": "2025-03-13T16:25:06.649Z",
+        "nauticalDawn": "2025-03-13T21:31:11.315Z",
+        "nauticalDusk": "2025-03-14T11:19:01.983Z",
+        "night": "2025-03-14T11:50:45.399Z",
+        "nightEnd": "2025-03-13T20:59:27.899Z",
+        "solarNoon": "2025-03-14T04:25:06.649Z",
+        "sunrise": "2025-03-13T22:29:31.330Z",
+        "sunriseEnd": "2025-03-13T22:32:18.318Z",
+        "sunset": "2025-03-14T10:20:41.967Z",
+        "sunsetStart": "2025-03-14T10:17:54.979Z"
+      }
+    },
+    "uv": 0.5756,
+    "uv_max": 4.7667,
+    "uv_max_time": "2025-03-14T04:25:06.649Z",
+    "uv_time": "2025-03-14T00:04:02.234Z"
+  }
+}
+
+
+
+
+fit5120ta03
+
+mysql -h fit5120.cja0m8k6e2fo.ap-southeast-2.rds.amazonaws.com -P 3306 -u fit5120 -p
+fit5120ta03
+
+mysqldump -u root -p --host=localhost --databases fit5120 > backup.sql
+mysql -u fit5120 -p -h fit5120.cja0m8k6e2fo.ap-southeast-2.rds.amazonaws.com --port=3306 fit5120 < backup.sql
+
+
+scp -r * ec2-user@54.66.193.165:~/flask-app/
+ssh ec2-user@54.66.193.165
+scp C:\Users\10594\PycharmProjects\flaskdemo\requirements.txt ec2-user@54.66.193.165:~/flask-app/
+

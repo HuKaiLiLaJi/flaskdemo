@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV & Mapbox & Cancer Data</title>
+    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.1/mapbox-gl.css" rel="stylesheet" />
+    
+    <script defer src="/static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; }
+        #map { width: 100%; height: 500px; margin-top: 10px; }
+        .container { padding: 20px; }
+        input, button, select { padding: 10px; margin: 5px; }
+        canvas { max-width: 100%; height: 400px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>UV & Mapbox & Cancer Data</h1>
+
+        <input type="text" id="locationInput" placeholder="Input the city name">
+        <button onclick="searchLocation()">Search</button>
+        <button onclick="getCurrentLocation()">Get Current Location</button>
+
+        <p><strong>UV index:</strong> <span id="uvIndex">--</span></p>
+        <p><strong>Max UV:</strong> <span id="uvMax">--</span></p>
+
+        <div id="map"></div>
+
+        <h2>Search Cancer Data</h2>
+        <select id="stateSelect">
+            <option value="">Select a State</option>
+            <option value="New South Wales">New South Wales</option>
+            <option value="Victoria">Victoria</option>
+            <option value="Queensland">Queensland</option>
+            <option value="Western Australia">Western Australia</option>
+            <option value="South Australia">South Australia</option>
+            <option value="Tasmania">Tasmania</option>
+            <option value="Australian Capital Territory">Australian Capital Territory</option>
+            <option value="Northern Territory">Northern Territory</option>
+        </select>
+        <label><input type="radio" name="cancerType" value="cancer_incidence"> Cancer Incidence</label>
+        <label><input type="radio" name="cancerType" value="cancer_mortality"> Cancer Mortality</label>
+        <button onclick="fetchCancerData()">Search</button>
+
+        <canvas id="cancerChart"></canvas>
+    </div>
+
+    <script>
+        const MAPBOX_ACCESS_TOKEN = "{{ mapbox_token }}";
+    </script>
+
+</body>
+</html>
